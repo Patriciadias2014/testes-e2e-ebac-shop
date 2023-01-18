@@ -1,0 +1,24 @@
+[
+    {
+      "empresa": "Teste",
+      "pais": "Brasil",
+      "endereco": "Av. Rio branco",
+      "numero": "12",
+      "cidade": "Rio de Janeiro",
+      "estado": "Rio de Janeiro",
+      "cep": "24346111",
+      "telefone": "2199999999",
+      "email": "teste@teste.com"
+    },  
+    {
+      "empresa": "Teste",
+      "pais": "Brasil",
+      "endereco": "Av. Brasil",
+      "numero": "22",
+      "cidade": "Minas Gerais",
+      "estado": "Minas Gerais",
+      "cep": "25346111",
+      "telefone": "2199999999",
+      "email": "teste.teste@teste.com"
+    }
+]
