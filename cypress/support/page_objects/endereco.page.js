@@ -1,6 +1,8 @@
 class EnderecoPage {
 
-  editarDadosFaturamento(empresa, pais, endereco, numero, cidade, estado, cep, telefone, email){
+  editarDadosFaturamento(nome, sobrenome, empresa, pais, endereco, numero, cidade, estado, cep, telefone, email){
+    cy.get('#billing_first_name').clear().type(nome)
+    cy.get('#billing_last_name').clear().type(sobrenome)
     cy.get('#billing_company').clear().type(empresa)
     cy.get('#select2-billing_country-container').click().type(pais).get('[aria-selected="true"]').click()
     cy.get('#billing_address_1').clear().type(endereco)

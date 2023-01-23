@@ -37,3 +37,19 @@ Cypress.Commands.add('acessar', (usuario, senha) => {
     cy.get('.woocommerce-button').click()
 })
 
+Cypress.Commands.add('addProduto', (produto, quantidade) => {
+cy.get('[class="product-block grid"]')
+.contains(produto)
+.click()
+cy.get('.button-variable-item-XS').click()
+cy.get('.button-variable-item-Blue').click()
+cy.get('.input-text').clear().type(quantidade)
+cy.get('.single_add_to_cart_button').click()
+ 
+cy.get('.dropdown-toggle > .mini-cart-items')
+.should('contain', quantidade)
+.click()
+cy.get('#cart > .dropdown-menu > .widget_shopping_cart_content > .mini_cart_content > .mini_cart_inner > .mcart-border > .buttons > .checkout').click()
+cy.get('.showlogin').click()
+})
+

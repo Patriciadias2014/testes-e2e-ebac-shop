@@ -12,34 +12,15 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
 
 
   it('Deve fazer um pedido na loja Ebac Shop de ponta a ponta', () => {
-  var quantidade = 4
-       
-    //utilização de variável
-    cy.get('[class="product-block grid"]')
-      .contains('Abominable Hoodie')
-      .click()
-    cy.get('.button-variable-item-XS').click()
-    cy.get('.button-variable-item-Blue').click()
-    cy.get('.input-text').clear().type(quantidade)
-    cy.get('.single_add_to_cart_button').click()
-       
-    cy.get('.dropdown-toggle > .mini-cart-items')
-      .should('contain', quantidade)
-      .click()
-    cy.get('#cart > .dropdown-menu > .widget_shopping_cart_content > .mini_cart_content > .mini_cart_inner > .mcart-border > .buttons > .checkout').click()
-    cy.get('.showlogin').click()
-
-
-    // utilização de comando customizado
+    // utilização de comando customizados
+    cy.addProduto('Abominable Hoodie', 4)    
+    
     cy.acessar
    
-    // utilização do faker
-    cy.get('#billing_first_name').clear().type(faker.name.firstName())
-    cy.get('#billing_last_name').clear().type(faker.name.lastName())
-
-
     // utilização de page objects e massa de dados
     EnderecoPage.editarDadosFaturamento(
+       dadosEndereco[1].nome,
+       dadosEndereco[1].sobrenome,
        dadosEndereco[1].empresa,
        dadosEndereco[1].pais,
        dadosEndereco[1].endereco,
@@ -53,7 +34,6 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
        
     cy.get('#terms').check()
     cy.get('#place_order').click()
-
 
     cy.get('.woocommerce-notice').contains('Obrigado. Seu pedido foi recebido.')
   })
